@@ -19,13 +19,17 @@
 {
 	[super viewWillAppear:animated];
 	_counter = 0;
-	[[Hub shared] subscribeMethod:@selector(onSomeTestMsg:) atObject:self forMessage:[SomeHubMsg class]];
+	[[Hub shared] subscribeMethod:@selector(onSomeTestMsg:)
+						 atObject:self
+					   forMessage:[SomeHubMsg class]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
-	[[Hub shared] unsubscribeMethod:@selector(onSomeTestMsg:) atObject:self fromMessage:[SomeHubMsg class]];
+	[[Hub shared] unsubscribeMethod:@selector(onSomeTestMsg:)
+						   atObject:self
+						fromMessage:[SomeHubMsg class]];
 }
 
 - (IBAction)onSendMessageBtn:(UIButton *)sender
